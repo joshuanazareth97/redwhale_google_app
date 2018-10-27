@@ -22,7 +22,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 #Define ALLOWED_HOSTS env var to allow custom hosts
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast = lambda values: [host.strip() for host in values.split(",")])
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default="", cast = lambda values: [host.strip() for host in values.split(",")])
 
 INSTALLED_APPS = [
     'django.contrib.admin',
