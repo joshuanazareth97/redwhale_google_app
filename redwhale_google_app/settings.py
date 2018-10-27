@@ -22,7 +22,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 #Define ALLOWED_HOSTS env var to allow custom hosts
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default="", cast = lambda values: [host.strip() for host in values.split(",")])
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default="127.0.0.1", cast = lambda values: [host.strip() for host in values.split(",")])
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -49,7 +49,7 @@ ROOT_URLCONF = 'redwhale_google_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,3 +127,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
