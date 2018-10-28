@@ -3,17 +3,19 @@
 
 {% block content %}
 
-<img src="{% static 'google_auth/default.jpg' %}" class="circle responsive-img z-depth-2" id="dp" />
-<h3> {{ name }} </h3>
+{% if profile.display_picture %}
+  <img src="{{ profile.display_picture.url }}" class="circle responsive-img z-depth-2" id="dp" />
+{% else %}
+  <img src="{% static 'google_auth/default.jpg' %}" class="circle responsive-img z-depth-2" id="dp" />
+{% endif %}
+
+<h3> {{ profile.name }} </h3>
 <br>
 <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
 <br>
 <div class="row">
   <div class="col s12 m6 offset-m3 l4 offset-l4" id="bio">
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, quibusdam? Non possimus assumenda
-      necessitatibus odio eos rerum, facilis mollitia deleniti nulla magni atque accusantium doloribus ab, sed.
-      Dolorem accusantium, non quae quo blanditiis dolores sunt similique aliquid distinctio quis cupiditate
-      placeat inventore quaerat excepturi dolor eaque eligendi fuga.</p>
+    <p>{{ profile.bio }}</p>
   </div>
 </div>
 <a href="{% url 'edit' %}">Edit Details</a>
