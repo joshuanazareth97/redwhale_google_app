@@ -1,12 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from .models import Profile
 
-# Create your views here.
 @login_required
 def homepage(request):
-    name = request.user.first_name + " " + request.user.last_name
+    get_object_or_404(Profile, user=request.user)
     return render(request, "home.html", {'name': name})
 
 @login_required
-def edit_details(request):
-    pass
+def edit_profile(request):
+    if request.method == 'POST':
+        print(request.POST)
+        print(request.FILES)
+        return redirect('/')
+    else:
+        return render(request, 'edit_details.html')
