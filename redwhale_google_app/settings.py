@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_django',
+    'google_auth',
 ]
 
 MIDDLEWARE = [
@@ -105,6 +106,11 @@ AUTHENTICATION_BACKENDS = (
 
  'django.contrib.auth.backends.ModelBackend', #default
 )
+
+#Google Credentials
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config("GOOGLE_AUTH_CLIENT_ID")
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config("GOOGLE_AUTH_CLIENT_SECRET")
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'homepage'
