@@ -13,12 +13,14 @@ class Profile(models.Model):
         help_text="Profile Picture",
         verbose_name="Profile Picture")
 
+    def __str__(self):
+        return str(self.user)
     @property
     def name(self):
         return "{} {}".format(self.user.first_name, self.user.last_name)
 
 @receiver(post_save, sender=User)
-def update_user_profile(sender, obj, created, **kwargs):
+def update_user_profile(sender, instance, created, **kwargs):
     if created:
-        Profile.objects.create(user=obj)
-    obj.profile.save()
+        Profile.objects.create(user=instance)
+    instance.profile.save()
