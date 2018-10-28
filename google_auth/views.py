@@ -4,4 +4,9 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 @login_required
 def homepage(request):
-    return render(request, "home.html")
+    name = request.user.first_name + " " + request.user.last_name
+    return render(request, "home.html", {'name': name})
+
+@login_required
+def edit_details(request):
+    pass
