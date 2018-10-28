@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="row">
+    <form method="POST" class="col s12" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class = "file-field input-field">
+        <div class = "btn">
+           <span>Browse</span>
+           <input type = "file" name="display_picture"/>
+        </div>
+        <div class = "file-path-wrapper">
+           <input class = "file-path validate" type = "text" placeholder = "Upload Profile Picture" />
+        </div>
+      </div>
+
+      <div class="input-field">
+        <label for="form-bio">Profile Information</label>
+        <textarea name="bio" id="form-bio" class="materialize-textarea" data-length="500"></textarea>
+      </div>
+
+      <input type="submit" value="Save" class="btn btn-primary">
+    </form>
+  </div>
+
+{% endblock content %}
