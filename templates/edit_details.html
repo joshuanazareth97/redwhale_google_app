@@ -6,6 +6,13 @@
     <div class="col s12">
       <h3>{{profile.name}}</h3>
     </div>
+
+    {% if error %}
+    <div class="col s12" id="error">
+      <p><small class="red-text">{{error}}</small></p>
+    </div>
+    {% endif %}
+
     <form method="POST" class="col s12" enctype="multipart/form-data">
       {% csrf_token %}
       <div class = "file-field input-field">
