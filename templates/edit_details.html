@@ -3,24 +3,29 @@
 
 {% block content %}
   <div class="row">
+    <div class="col s12">
+      <h3>{{profile.name}}</h3>
+    </div>
     <form method="POST" class="col s12" enctype="multipart/form-data">
       {% csrf_token %}
       <div class = "file-field input-field">
         <div class = "btn">
            <span>Browse</span>
-           <input type = "file" name="display_picture"/>
+           <input type = "file" name="display"/>
         </div>
         <div class = "file-path-wrapper">
            <input class = "file-path validate" type = "text" placeholder = "Upload Profile Picture" />
         </div>
       </div>
-
+      <br>
       <div class="input-field">
         <label for="form-bio">Profile Information</label>
-        <textarea name="bio" id="form-bio" class="materialize-textarea" data-length="500"></textarea>
+        <textarea name="bio" id="form-bio" class="materialize-textarea" data-length="500">{{ profile.bio }}</textarea>
       </div>
-
-      <input type="submit" value="Save" class="btn btn-primary">
+      <br>
+      <div id="submit">
+        <input type="submit" value="Save" class="btn btn-primary">
+      </div>
     </form>
   </div>
 
