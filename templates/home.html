@@ -4,7 +4,7 @@
 {% block content %}
 
 {% if profile.display_picture %}
-  <img src="{{ profile.display_picture.url }}" class="circle responsive-img z-depth-2" id="dp" />
+  <img src="{{ profile.display_picture.url }}" class="responsive-img z-depth-2" id="dp" />
 {% else %}
   <img src="{% static 'google_auth/default.jpg' %}" class="circle responsive-img z-depth-2" id="dp" />
 {% endif %}
