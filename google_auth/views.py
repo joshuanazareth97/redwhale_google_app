@@ -4,14 +4,18 @@ from .models import Profile
 
 @login_required
 def homepage(request):
-    get_object_or_404(Profile, user=request.user)
-    return render(request, "home.html", {'name': name})
+    user_profile = get_object_or_404(Profile, user=request.user)
+    return render(request, "home.html", {'profile': user_profile})
 
 @login_required
 def edit_profile(request):
+    user_profile = get_object_or_404(Profile, user=request.user)
     if request.method == 'POST':
-        print(request.POST)
-        print(request.FILES)
+        bio = request.POST.get("bio")
+        user_profile.bio = bio
+        user_profile.save()
+        if request.FILES:
+            print("File")
         return redirect('/')
     else:
-        return render(request, 'edit_details.html')
+        return render(request, 'edit_details.html', {'profile':user_profile})
