@@ -19,7 +19,7 @@ def edit_profile(request):
             ext = image_file.name.split(".")[-1]
             size = image_file.size/1024**2
             print(ext,size)
-            if ext in ["png","jpg","bmp","gif", "jpeg"] and size < 50:
+            if ext.lower() in ["png","jpg","bmp","gif", "jpeg"] and size < 50:
                 user_profile.display_picture.save("{}.{}".format(user_profile.user,ext),image_file)
             else:
                 print("Error")
