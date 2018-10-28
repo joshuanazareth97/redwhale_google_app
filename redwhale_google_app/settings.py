@@ -120,7 +120,7 @@ LOGIN_REDIRECT_URL = 'homepage'
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC+5.30'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
