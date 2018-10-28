@@ -1,62 +1,21 @@
+{% extends 'base.html' %}
 {% load static %}
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> {{ name }} | Redwhale Profiles</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway|Sacramento">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
-    <style media="screen">
-      div#main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-      }
+{% block content %}
 
-      h3 {
-        text-align: center;
-        font-family: Sacramento;
-      }
+<img src="{% static 'google_auth/default.jpg' %}" class="circle responsive-img z-depth-2" id="dp" />
+<h3> {{ name }} </h3>
+<br>
+<a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+<br>
+<div class="row">
+  <div class="col s12 m6 offset-m3 l4 offset-l4" id="bio">
+    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, quibusdam? Non possimus assumenda
+      necessitatibus odio eos rerum, facilis mollitia deleniti nulla magni atque accusantium doloribus ab, sed.
+      Dolorem accusantium, non quae quo blanditiis dolores sunt similique aliquid distinctio quis cupiditate
+      placeat inventore quaerat excepturi dolor eaque eligendi fuga.</p>
+  </div>
+</div>
+<a href="{% url 'edit' %}">Edit Details</a>
 
-      #dp {
-        max-height: 100px;
-        max-width: 100px;
-      }
-
-      .btn {
-        max-width: 90px;
-      }
-
-      #bio {
-        text-align: center;
-        font-family: Raleway;
-        font-size: 14px;
-      }
-
-    </style>
-  </head>
-
-  <body>
-    <div class="container" id="main">
-      <img src="{% static 'google_auth/default.jpg' %}" class="circle responsive-img z-depth-2" id="dp" />
-      <h3> {{ name }} </h3>
-      <br>
-      <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
-      <br>
-      <div class="row">
-        <div class="col s12 m6 offset-m3 l4 offset-l4" id="bio">
-          <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, quibusdam? Non possimus assumenda
-            necessitatibus odio eos rerum, facilis mollitia deleniti nulla magni atque accusantium doloribus ab, sed.
-            Dolorem accusantium, non quae quo blanditiis dolores sunt similique aliquid distinctio quis cupiditate
-            placeat inventore quaerat excepturi dolor eaque eligendi fuga.</p>
-        </div>
-      </div>
-      <a href="{% url 'edit' %}">Edit Details</a>
-    </div>
-  </body>
-</html>
+{% endblock content %}
