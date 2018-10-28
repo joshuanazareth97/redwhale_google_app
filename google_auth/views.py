@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 from .models import Profile
 
 @login_required
@@ -27,3 +28,8 @@ def edit_profile(request):
         return redirect('/')
     else:
         return render(request, 'edit_details.html', {'profile':user_profile})
+
+@login_required
+def logout_view(request):
+    logout(request)
+    return redirect('/')
