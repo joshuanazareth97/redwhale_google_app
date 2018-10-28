@@ -10,5 +10,6 @@ urlpatterns = [
     path('auth/', include('social_django.urls', namespace="google")),
     path('login/', auth_views.LoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('', rw_views.homepage, name='homepage')
+    path('', rw_views.homepage, name='homepage'),
+    path('edit_profile', rw_views.edit_profile, name='edit')
 ]
